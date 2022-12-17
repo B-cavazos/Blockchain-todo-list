@@ -117,6 +117,14 @@ App = {
     window.location.reload()
   },
 
+  createTask: async ()=>{
+    App.setLoading(true);
+    const content = $('#newTask').val();
+    await App.todoList.createTask(content);
+    //app reload and refetch all tasks
+    window.location.reload();
+  },
+
   setLoading: (boolean) => {
     App.loading = boolean
     const loader = $('#loader')
@@ -130,8 +138,6 @@ App = {
     }
   }
 }
-
-
 
 
 $(()=>{
